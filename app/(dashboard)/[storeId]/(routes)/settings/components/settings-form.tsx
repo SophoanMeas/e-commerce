@@ -26,7 +26,7 @@ import { ApiAlert } from "@/components/ui/alert/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
 
 const formSchema = z.object({
-    name: z.string().min(2),
+    name: z.string().min(1),
   });
   
   type SettingsFormValues = z.infer<typeof formSchema>
