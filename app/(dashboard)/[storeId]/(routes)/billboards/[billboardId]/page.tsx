@@ -23,7 +23,6 @@ const BillboardPage = async ({
             }
         });
     } catch (error) {
-        console.log("No billboard")
     }
 
 
