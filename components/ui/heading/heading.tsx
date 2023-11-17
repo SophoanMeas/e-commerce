@@ -1,5 +1,4 @@
 'use client'
-
 interface HeadingPros {
     title: string;
     description: string;

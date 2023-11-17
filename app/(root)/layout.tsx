@@ -7,16 +7,16 @@ export default async function SetupLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const {userId} = auth();
+    const { userId } = auth();
 
     if (!userId) {
         redirect('/sign-in')
     }
 
     const store = await prismadb.store.findFirst({
-where: {
-    userId
-    }
+        where: {
+            userId
+        }
     })
 
     if (store) {
@@ -25,7 +25,7 @@ where: {
 
     return (
         <>
-        {children}
+            {children}
         </>
     )
 

@@ -14,8 +14,13 @@ export function MainNav({
     const routes = [
         {
             href: `/${params.storeId}`,
-            label: 'Home',
+            label: 'Overview',
             active: pathname === `/${params.storeId}`,
+        },
+        {
+            href: `/${params.storeId}/billboards`,
+            label: 'Billboards',
+            active: pathname === `/${params.storeId}/billboards`,
         },
         {
             href: `/${params.storeId}/settings`,
@@ -27,14 +32,14 @@ export function MainNav({
     return (
         <nav className={cn("flex items0center space-z-4 lg:space-x-6", className)}>
             {routes.map((route) => (
-               <Link
-               key={route.href}
-               href={route.href}
-               className={cn("text-sm font-medium transition-colors hover:text-primary", 
-               route.active ? "text-black dark:text-white" : "text-muted-foreground"
-               )}
-               >
-                {route.label}
+                <Link
+                    key={route.href}
+                    href={route.href}
+                    className={cn("text-sm font-medium transition-colors hover:text-primary",
+                        route.active ? "text-black dark:text-white" : "text-muted-foreground"
+                    )}
+                >
+                    {route.label}
                 </Link>
             ))}
         </nav>

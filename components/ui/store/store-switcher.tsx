@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Store, ChevronsUpDown, Check, PlusCircle } from "lucide-react";
-
 import { useParams, useRouter } from "next/navigation"
 
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover/popover"
@@ -20,7 +19,6 @@ import {
 } from "@/components/ui/command/command";
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
-
 interface StoreSwitcherProps extends PopoverTriggerProps {
     items: Record<string, any>[];
 }

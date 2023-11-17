@@ -1,6 +1,7 @@
 import prismadb from "@/lib/prisma";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+
 import Navbar from "@/components/ui/navbar/narbar";
 
 export default async function Dashboard({
