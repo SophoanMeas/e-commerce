@@ -42,7 +42,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 }) => {
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const [open, setOpen] = useState(false)
     const [loading, setLoading] = useState(false);
@@ -62,19 +61,19 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
     const onSubmit = async (data: BillboardFormValues) => {
         try {
-            setLoading(true)
+            setLoading(true);
             if (initialData) {
                 await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data);
             } else {
                 await axios.post(`/api/${params.storeId}/billboards`, data);
             }
+            router.push(`/${params.storeId}/billboards`);
             router.refresh();
-            router.push(`/${params.storeId}/billboards`)
-            toast.success(toastMessage)
+            toast.success(toastMessage);
         } catch (error) {
-            toast.error("Something went wrong.")
+            toast.error("Something went wrong.");
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
     }
 
