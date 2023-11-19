@@ -1,25 +1,25 @@
 import prismadb from "@/lib/prisma";
 
-import { BillboardForm } from "./components/billboard-form";
+import { SizeForm } from "./components/size-form";
 
-const BillboardPage = async ({
+const SizePage = async ({
     params
 }: {
-    params: { billboardId: string }
+    params: { sizeId: string }
 }) => {
-  let billboard: {
+  let size: {
         id: string;
+        name: string;
+        value: string;
         storeId: string;
-        label: string;
-        imageUrl: string;
         createdAt: Date;
         updatedAt: Date;
     } | null = null;
 
     try {
-        billboard = await prismadb.billboard.findUnique({
+        size = await prismadb.size.findUnique({
             where: {
-                id: params.billboardId
+                id: params.sizeId
             },
         });
     } catch (error) {
@@ -28,10 +28,10 @@ const BillboardPage = async ({
     return (
         <div className="flex-col">
             <div className="flex-1 space-y-4 p-8 pt-6">
-                <BillboardForm initialData={billboard} />
+                <SizeForm initialData={size} />
             </div>
         </div>
     );
 }
 
-export default BillboardPage;
+export default SizePage;
