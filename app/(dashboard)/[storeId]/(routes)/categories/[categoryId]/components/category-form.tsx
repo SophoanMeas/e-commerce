@@ -15,11 +15,12 @@ import { Heading } from "@/components/ui/heading/heading"
 import { Separator } from "@/components/ui/separator/separator"
 import { AlertModal } from "@/components/modals/alert-modal"
 import { Input } from "@/components/ui/input/input";
-import { Select, 
-    SelectContent, 
-    SelectItem, 
-    SelectTrigger, 
-    SelectValue 
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue
 } from "@/components/ui/select/select";
 import {
     Form,
@@ -64,27 +65,28 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
             billboardId: '',
         }
     });
+    // console.log(initialData)
 
     const onSubmit = async (data: CategoryFormValues) => {
         try {
-          setLoading(true);
-          if (initialData) {
-            await axios.patch(`/api/${params.storeId}/categories/${params.categoryId}`, data);
-          } else {
-            await axios.post(`/api/${params.storeId}/categories`, data);
-            console.log(params.categoryId)
-          }
+            setLoading(true);
+            if (initialData) {
+                await axios.patch(`/api/${params.storeId}/categories/${params.categoryId}`, data);
+            } else {
+                await axios.post(`/api/${params.storeId}/categories`, data);
+                console.log(params.categoryId)
+            }
 
-          toast.success(toastMessage);
-          router.push(`/${params.storeId}/categories`);
-          router.refresh();
+            toast.success(toastMessage);
+            router.push(`/${params.storeId}/categories`);
+            router.refresh();
         } catch (error: any) {
-          toast.error('Something went wrong.');
+            toast.error('Something went wrong.');
         } finally {
-          setLoading(false);
+            setLoading(false);
         }
-      };
-    
+    };
+
     const onDelete = async () => {
         try {
             setLoading(true);

@@ -78,19 +78,6 @@ export const columns: ColumnDef<CategoryColumn>[] = [
     },
     {
         id: "actions",
-        header: ({ column }) => {
-            return (
-                <Button
-                    className="pl-0"
-                    variant="sortButton"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Action
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-
-            )
-        },
         cell: ({ row }) => <CellAction data={row.original} />
     }
 ]

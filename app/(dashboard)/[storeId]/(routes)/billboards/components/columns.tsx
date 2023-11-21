@@ -60,20 +60,7 @@ export const columns: ColumnDef<BillboardColumn>[] = [
         },
     },
     {
-        id: "action",
-        header: ({ column }) => {
-            return (
-                <Button
-                    className="pl-0"
-                    variant="sortButton"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Action
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
-
-            )
-        },
+        id: "actions",
         cell: ({ row }) => <CellAction data={row.original} />
     }
 ]
