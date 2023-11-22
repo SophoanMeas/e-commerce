@@ -17,6 +17,7 @@ const BillboardPage = async ({
     } | null = null;
 
     try {
+        // @ts-ignore
         billboard = await prismadb.billboard.findUnique({
             where: {
                 id: params.billboardId
